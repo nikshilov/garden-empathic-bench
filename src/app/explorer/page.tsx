@@ -33,19 +33,22 @@ export default function ExplorerPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="flex items-center justify-between">
-        <h1 className="font-serif text-3xl font-bold">Test Explorer</h1>
+        <h1 className="font-serif text-4xl font-bold">Test Explorer</h1>
         <div className="flex items-center gap-3">
           <div className="flex gap-2">
             {(meta.languages || ["en"]).map((l) => (
               <button
                 key={l}
-                onClick={() => { setLang(l); setRunIndex(1); }}
-                className={`rounded-md px-3 py-1 text-sm font-medium transition-colors ${
+                onClick={() => {
+                  setLang(l);
+                  setRunIndex(1);
+                }}
+                className={`rounded-xl px-4 py-1.5 text-sm font-medium transition-all duration-300 ${
                   lang === l
-                    ? "bg-gradient-to-r from-[#f9a88e] to-[#e86c5f] text-white"
-                    : "bg-secondary text-muted-foreground hover:text-foreground"
+                    ? "bg-gradient-to-r from-[#f9a88e] via-[#e07058] to-[#b85dab] text-white shadow-md shadow-primary/20"
+                    : "glass text-muted-foreground hover:text-foreground"
                 }`}
               >
                 {l.toUpperCase()}
@@ -56,7 +59,7 @@ export default function ExplorerPage() {
             <select
               value={runIndex}
               onChange={(e) => setRunIndex(Number(e.target.value))}
-              className="rounded-md border border-border bg-card px-3 py-1 text-sm"
+              className="glass rounded-xl px-4 py-1.5 text-sm font-medium"
             >
               {Array.from({ length: variance.n_runs }, (_, i) => (
                 <option key={i + 1} value={i + 1}>
@@ -68,11 +71,11 @@ export default function ExplorerPage() {
         </div>
       </div>
 
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-3 text-lg text-muted-foreground">
         Drill into what each system retrieved and how each judge scored it.
       </p>
 
-      <div className="mt-6">
+      <div className="mt-8">
         <TestExplorer run={run} meta={meta} />
       </div>
     </div>

@@ -22,28 +22,68 @@ export function StackedBarChart({ systems }: { systems: SystemVariance[] }) {
   }));
 
   return (
-    <ResponsiveContainer width="100%" height={Math.max(400, systems.length * 32)}>
-      <BarChart data={data} layout="vertical" margin={{ left: 100, right: 20, top: 5, bottom: 5 }}>
-        <XAxis type="number" domain={[0, 30]} tick={{ fill: "#8b7355", fontSize: 12 }} />
-        <YAxis type="category" dataKey="name" tick={{ fill: "#1a0f0a", fontSize: 12 }} width={95} />
+    <ResponsiveContainer
+      width="100%"
+      height={Math.max(400, systems.length * 32)}
+    >
+      <BarChart
+        data={data}
+        layout="vertical"
+        margin={{ left: 100, right: 20, top: 5, bottom: 5 }}
+      >
+        <XAxis
+          type="number"
+          domain={[0, 30]}
+          tick={{ fill: "#9a8576", fontSize: 12 }}
+          axisLine={{ stroke: "rgba(224,112,88,0.15)" }}
+          tickLine={{ stroke: "rgba(224,112,88,0.15)" }}
+        />
+        <YAxis
+          type="category"
+          dataKey="name"
+          tick={{ fill: "#2d1f14", fontSize: 12 }}
+          width={95}
+          axisLine={false}
+          tickLine={false}
+        />
         <Tooltip
-          contentStyle={{ background: "#ffffff", border: "1px solid #f0e6dc", borderRadius: 8, boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}
-          labelStyle={{ color: "#1a0f0a" }}
+          contentStyle={{
+            background: "rgba(255,255,255,0.85)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.5)",
+            borderRadius: 16,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
+          }}
+          labelStyle={{ color: "#2d1f14", fontWeight: 600 }}
           formatter={(value, name) => {
             const num = typeof value === "number" ? value : 0;
             const label =
-              name === "rel" ? "Relevance" : name === "spec" ? "Specificity" : "Actionability";
+              name === "rel"
+                ? "Relevance"
+                : name === "spec"
+                  ? "Specificity"
+                  : "Actionability";
             return [formatScore(num), label];
           }}
         />
         <Legend
           formatter={(value) =>
-            value === "rel" ? "Relevance" : value === "spec" ? "Specificity" : "Actionability"
+            value === "rel"
+              ? "Relevance"
+              : value === "spec"
+                ? "Specificity"
+                : "Actionability"
           }
         />
         <Bar dataKey="rel" stackId="score" fill={DIMENSION_COLORS.rel} />
         <Bar dataKey="spec" stackId="score" fill={DIMENSION_COLORS.spec} />
-        <Bar dataKey="act" stackId="score" fill={DIMENSION_COLORS.act} radius={[0, 4, 4, 0]} />
+        <Bar
+          dataKey="act"
+          stackId="score"
+          fill={DIMENSION_COLORS.act}
+          radius={[0, 8, 8, 0]}
+        />
       </BarChart>
     </ResponsiveContainer>
   );

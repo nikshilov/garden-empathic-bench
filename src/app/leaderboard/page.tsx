@@ -28,18 +28,18 @@ export default function LeaderboardPage() {
   }
 
   return (
-    <div className="mx-auto max-w-6xl px-4 py-8">
+    <div className="mx-auto max-w-6xl px-4 py-12">
       <div className="flex items-center justify-between">
-        <h1 className="font-serif text-3xl font-bold">Leaderboard</h1>
+        <h1 className="font-serif text-4xl font-bold">Leaderboard</h1>
         <div className="flex gap-2">
           {(meta.languages || ["en"]).map((l) => (
             <button
               key={l}
               onClick={() => setLang(l)}
-              className={`rounded-md px-3 py-1 text-sm font-medium transition-colors ${
+              className={`rounded-xl px-4 py-1.5 text-sm font-medium transition-all duration-300 ${
                 lang === l
-                  ? "bg-gradient-to-r from-[#f9a88e] to-[#e86c5f] text-white"
-                  : "bg-secondary text-muted-foreground hover:text-foreground"
+                  ? "bg-gradient-to-r from-[#f9a88e] via-[#e07058] to-[#b85dab] text-white shadow-md shadow-primary/20"
+                  : "glass text-muted-foreground hover:text-foreground"
               }`}
             >
               {l.toUpperCase()}
@@ -48,17 +48,17 @@ export default function LeaderboardPage() {
         </div>
       </div>
 
-      <p className="mt-2 text-muted-foreground">
+      <p className="mt-3 text-lg text-muted-foreground">
         {variance.n_runs} runs &middot; {meta.judges.length} judges from{" "}
         {new Set(meta.judges.map((j) => j.provider)).size} companies &middot;
         Mean &plusmn; std across runs
       </p>
 
-      <section className="mt-8 rounded-lg border border-border bg-card p-4">
+      <section className="mt-10 glass rounded-2xl p-6">
         <StackedBarChart systems={variance.systems} />
       </section>
 
-      <section className="mt-8 rounded-lg border border-border">
+      <section className="mt-10 glass rounded-2xl overflow-hidden">
         <LeaderboardTable variance={variance} meta={meta} />
       </section>
     </div>

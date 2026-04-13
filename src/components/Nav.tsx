@@ -18,31 +18,36 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2 font-serif text-lg font-bold">
-          <span className="text-primary">&#9670;</span>
-          Empathic Bench
+    <nav className="sticky top-0 z-50 glass rounded-none border-0 border-b border-white/20">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
+        <Link href="/" className="flex items-center gap-2 font-serif text-lg font-bold transition-all duration-300 hover:scale-105">
+          <span className="gradient-text text-xl">&#9670;</span>
+          <span className="text-foreground">Empathic Bench</span>
         </Link>
 
-        <div className="hidden items-center gap-6 md:flex">
+        <div className="hidden items-center gap-8 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "text-sm transition-colors hover:text-foreground",
-                pathname === link.href ? "text-foreground" : "text-muted-foreground"
+                "relative text-sm font-medium transition-all duration-300 hover:text-foreground",
+                pathname === link.href
+                  ? "gradient-text"
+                  : "text-muted-foreground"
               )}
             >
               {link.label}
+              {pathname === link.href && (
+                <span className="absolute -bottom-1 left-0 right-0 h-0.5 rounded-full bg-gradient-to-r from-[#f9a88e] via-[#e07058] to-[#b85dab]" />
+              )}
             </Link>
           ))}
           <a
             href="https://github.com/nicshilov/garden-empathic-bench"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-muted-foreground hover:text-foreground"
+            className="text-muted-foreground transition-all duration-300 hover:text-foreground hover:scale-110"
             aria-label="GitHub"
           >
             <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
@@ -63,15 +68,17 @@ export function Nav() {
       </div>
 
       {open && (
-        <div className="border-t border-border md:hidden">
+        <div className="glass-subtle rounded-b-2xl border-t border-white/20 md:hidden">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className={cn(
-                "block px-4 py-3 text-sm transition-colors hover:bg-secondary",
-                pathname === link.href ? "text-foreground" : "text-muted-foreground"
+                "block px-4 py-3.5 text-sm font-medium transition-all duration-300",
+                pathname === link.href
+                  ? "gradient-text"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               {link.label}

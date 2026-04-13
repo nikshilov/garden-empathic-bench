@@ -29,17 +29,36 @@ export function JudgeRadarChart({ scores, judges }: Props) {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <ReRadar cx="50%" cy="50%" outerRadius="75%" data={data}>
-        <PolarGrid stroke="#f0e6dc" />
-        <PolarAngleAxis dataKey="judge" tick={{ fill: "#8b7355", fontSize: 11 }} />
-        <PolarRadiusAxis domain={[0, 30]} tick={{ fill: "#8b7355", fontSize: 10 }} />
+        <PolarGrid stroke="rgba(224,112,88,0.15)" />
+        <PolarAngleAxis
+          dataKey="judge"
+          tick={{ fill: "#9a8576", fontSize: 11 }}
+        />
+        <PolarRadiusAxis
+          domain={[0, 30]}
+          tick={{ fill: "#9a8576", fontSize: 10 }}
+        />
         <Tooltip
-          contentStyle={{ background: "#ffffff", border: "1px solid #f0e6dc", borderRadius: 8, boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}
+          contentStyle={{
+            background: "rgba(255,255,255,0.85)",
+            backdropFilter: "blur(16px)",
+            WebkitBackdropFilter: "blur(16px)",
+            border: "1px solid rgba(255,255,255,0.5)",
+            borderRadius: 16,
+            boxShadow: "0 8px 32px rgba(0,0,0,0.08)",
+          }}
           formatter={(value) => {
             const num = typeof value === "number" ? value : 0;
             return [formatScore(num) + " / 30", "Score"];
           }}
         />
-        <Radar dataKey="total" stroke="#e86c5f" fill="#e86c5f" fillOpacity={0.3} />
+        <Radar
+          dataKey="total"
+          stroke="#e07058"
+          fill="#e07058"
+          fillOpacity={0.2}
+          strokeWidth={2}
+        />
       </ReRadar>
     </ResponsiveContainer>
   );

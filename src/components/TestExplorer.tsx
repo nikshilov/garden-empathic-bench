@@ -44,11 +44,14 @@ export function TestExplorer({ run, meta }: Props) {
         {run.tests.map((t, i) => (
           <button
             key={t.test_id}
-            onClick={() => { setSelectedTest(i); setExpandedJudge(null); }}
-            className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
+            onClick={() => {
+              setSelectedTest(i);
+              setExpandedJudge(null);
+            }}
+            className={`rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300 ${
               selectedTest === i
-                ? "bg-gradient-to-r from-[#f9a88e] to-[#e86c5f] text-white"
-                : "bg-secondary text-muted-foreground hover:text-foreground"
+                ? "bg-gradient-to-r from-[#f9a88e] via-[#e07058] to-[#b85dab] text-white shadow-md shadow-primary/20"
+                : "glass text-muted-foreground hover:text-foreground"
             }`}
           >
             {t.test_id}: {t.test_name.replace(/_/g, " ")}
@@ -57,13 +60,17 @@ export function TestExplorer({ run, meta }: Props) {
       </div>
 
       {/* Query */}
-      <div className="mt-4 rounded-lg border border-border bg-card p-4">
-        <div className="text-sm text-muted-foreground">Query</div>
-        <p className="mt-1 italic">&ldquo;{test.query}&rdquo;</p>
+      <div className="mt-6 glass rounded-2xl p-5">
+        <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+          Query
+        </div>
+        <p className="mt-2 font-serif text-lg italic text-foreground">
+          &ldquo;{test.query}&rdquo;
+        </p>
       </div>
 
       {/* Systems */}
-      <div className="mt-6 space-y-4">
+      <div className="mt-8 space-y-5">
         {sortedSystems.map((code) => {
           const name = run.meta.systems[code] ?? code;
           const results = test.results[code];
@@ -72,28 +79,38 @@ export function TestExplorer({ run, meta }: Props) {
           return (
             <div
               key={code}
-              className={`rounded-lg border bg-card p-4 ${
-                code === "G" ? "border-primary/20" : "border-border"
+              className={`glass rounded-2xl p-5 transition-all duration-300 ${
+                code === "G"
+                  ? "garden-glow"
+                  : ""
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  {code === "G" && <span className="text-primary">&#9733;</span>}
-                  <span className="font-medium">{name}</span>
+                  {code === "G" && (
+                    <span className="gradient-text text-lg">&#9733;</span>
+                  )}
+                  <span className="font-semibold text-lg">{name}</span>
                 </div>
-                <span className="font-mono text-lg">
-                  {formatScore(totalScore)} <span className="text-sm text-muted-foreground">/ 30</span>
+                <span className="font-mono text-xl font-semibold">
+                  {formatScore(totalScore)}{" "}
+                  <span className="text-sm font-normal text-muted-foreground">
+                    / 30
+                  </span>
                 </span>
               </div>
 
               {/* Retrieved memories */}
               {Array.isArray(results) && results.length > 0 && (
-                <div className="mt-3 space-y-2">
-                  <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+                <div className="mt-4 space-y-2">
+                  <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                     Retrieved memories
                   </div>
                   {(results as Record<string, unknown>[]).map((mem, i) => (
-                    <div key={i} className="rounded border border-border/50 bg-background p-2 text-sm">
+                    <div
+                      key={i}
+                      className="glass-subtle rounded-xl p-3 text-sm text-foreground/80"
+                    >
                       {String(mem.text ?? JSON.stringify(mem))}
                     </div>
                   ))}
@@ -101,11 +118,11 @@ export function TestExplorer({ run, meta }: Props) {
               )}
 
               {/* Per-judge scores */}
-              <div className="mt-3">
-                <div className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+              <div className="mt-4">
+                <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                   Judge scores
                 </div>
-                <div className="mt-1 flex flex-wrap gap-2">
+                <div className="mt-2 flex flex-wrap gap-2">
                   {Object.entries(test.verdicts).map(([judgeId, verdict]) => {
                     const s = verdict.scores[code];
                     if (!s) return null;
@@ -115,10 +132,12 @@ export function TestExplorer({ run, meta }: Props) {
                         key={judgeId}
                         onClick={() =>
                           setExpandedJudge(
-                            expandedJudge === `${code}-${judgeId}` ? null : `${code}-${judgeId}`
+                            expandedJudge === `${code}-${judgeId}`
+                              ? null
+                              : `${code}-${judgeId}`
                           )
                         }
-                        className="rounded bg-secondary px-2 py-1 text-xs font-mono hover:bg-secondary/80 transition-colors"
+                        className="glass rounded-xl px-3 py-1.5 text-xs font-mono transition-all duration-300 hover:scale-105"
                         title={`${jInfo?.label}: rel=${s.rel} spec=${s.spec} act=${s.act}`}
                       >
                         {jInfo?.label ?? judgeId}: {s.rel}/{s.spec}/{s.act}
@@ -129,21 +148,23 @@ export function TestExplorer({ run, meta }: Props) {
               </div>
 
               {/* Expanded judge note */}
-              {expandedJudge?.startsWith(`${code}-`) && (() => {
-                const judgeId = expandedJudge.replace(`${code}-`, "");
-                const verdict = test.verdicts[judgeId];
-                const jInfo = meta.judges.find((j) => j.id === judgeId);
-                return (
-                  <div className="mt-2 rounded border border-border/50 bg-background p-3 text-sm">
-                    <div className="font-medium text-muted-foreground">
-                      {jInfo?.label ?? judgeId} reasoning
+              {expandedJudge?.startsWith(`${code}-`) &&
+                (() => {
+                  const judgeId = expandedJudge.replace(`${code}-`, "");
+                  const verdict = test.verdicts[judgeId];
+                  const jInfo = meta.judges.find((j) => j.id === judgeId);
+                  return (
+                    <div className="mt-3 glass-subtle rounded-xl p-4 text-sm">
+                      <div className="font-semibold text-muted-foreground">
+                        {jInfo?.label ?? judgeId} reasoning
+                      </div>
+                      <p className="mt-2 text-foreground/80 leading-relaxed">
+                        {verdict?.note ||
+                          "No reasoning available for this test/judge pair."}
+                      </p>
                     </div>
-                    <p className="mt-1">
-                      {verdict?.note || "No reasoning available for this test/judge pair."}
-                    </p>
-                  </div>
-                );
-              })()}
+                  );
+                })()}
             </div>
           );
         })}

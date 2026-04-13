@@ -7,9 +7,16 @@ export function StatsRow({ stats }: { stats: Stat[] }) {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
       {stats.map((stat) => (
-        <div key={stat.label} className="rounded-lg border border-border bg-card p-4 text-center">
-          <div className="font-serif text-3xl font-bold text-primary">{stat.value}</div>
-          <div className="mt-1 text-sm text-muted-foreground">{stat.label}</div>
+        <div
+          key={stat.label}
+          className="glass rounded-2xl p-6 text-center transition-all duration-300 hover:scale-105"
+        >
+          <div className="gradient-text font-serif text-4xl font-bold">
+            {stat.value}
+          </div>
+          <div className="mt-2 text-sm font-medium text-muted-foreground">
+            {stat.label}
+          </div>
         </div>
       ))}
     </div>
