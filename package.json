@@ -7,8 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "prepare-data": "python3 scripts/prepare-data.py",
-    "prebuild": "python3 scripts/prepare-data.py"
+    "prepare-data": "python3 scripts/prepare-data.py"
   },
   "dependencies": {
     "@base-ui/react": "^1.3.0",
