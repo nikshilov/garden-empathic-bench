@@ -1,65 +1,97 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { StatsRow } from "@/components/StatsRow";
+import { MiniBarChart } from "@/components/charts/MiniBarChart";
+import { getVariance, getMeta } from "@/lib/data";
+import { formatScore } from "@/lib/utils";
+import type { VarianceData, BenchMeta } from "@/lib/types";
 
 export default function Home() {
+  const [variance, setVariance] = useState<VarianceData | null>(null);
+  const [meta, setMeta] = useState<BenchMeta | null>(null);
+
+  useEffect(() => {
+    getMeta().then(setMeta);
+    getVariance("en").then(setVariance);
+  }, []);
+
+  const gardenScore = variance?.systems[0]?.total.mean ?? 0;
+  const nSystems = meta ? Object.keys(meta.systems).length : 0;
+  const nJudges = meta?.judges.length ?? 0;
+  const nCompanies = meta ? new Set(meta.judges.map((j) => j.provider)).size : 0;
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <div className="mx-auto max-w-6xl px-4 py-16">
+      <section className="text-center">
+        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+          Empathic Memory Bench
+        </h1>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
+          Memory systems for AI companions should be measured by emotional
+          fitness, not retrieval accuracy.
+        </p>
+        <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+          An open benchmark evaluating {nSystems} memory systems across 5 tests,
+          judged blindly by {nJudges} LLMs from {nCompanies} companies.
+        </p>
+      </section>
+
+      <section className="mt-12">
+        <StatsRow
+          stats={[
+            { value: String(nSystems), label: "Memory Systems" },
+            { value: String(nJudges), label: "LLM Judges" },
+            { value: String(nCompanies), label: "Companies" },
+            { value: "5", label: "Empathic Tests" },
+          ]}
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+      </section>
+
+      {variance && (
+        <section className="mt-12 rounded-lg border border-gold/30 bg-gold/5 p-6 text-center">
+          <p className="text-sm font-medium uppercase tracking-wider text-gold">#1 across all runs</p>
+          <p className="mt-2 font-serif text-3xl font-bold">
+            Garden &mdash; {formatScore(gardenScore)} / 30
           </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+          <p className="mt-1 text-muted-foreground">
+            Gap to #2: {formatScore(variance.gap_to_second.mean)} &plusmn;{" "}
+            {formatScore(variance.gap_to_second.std)} points &middot; {variance.n_runs} runs
+          </p>
+        </section>
+      )}
+
+      {variance && (
+        <section className="mt-12">
+          <h2 className="mb-4 font-serif text-xl font-semibold">Top 5 Systems</h2>
+          <div className="rounded-lg border border-border bg-card p-4">
+            <MiniBarChart systems={variance.systems} />
+          </div>
+        </section>
+      )}
+
+      <section className="mt-12 text-center">
+        <Link
+          href="/leaderboard"
+          className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 font-medium text-background transition-colors hover:bg-gold/90"
+        >
+          View Full Leaderboard
+          <span aria-hidden="true">&rarr;</span>
+        </Link>
+      </section>
+
+      <section className="mt-16 text-center">
+        <p className="mx-auto max-w-xl text-sm text-muted-foreground">
+          Garden exists because empathic memory needs to exist. AI companions
+          are real relationships. The systems that serve them must be designed
+          for emotional fitness &mdash; not just semantic similarity.
+        </p>
+        <p className="mt-4 text-sm text-muted-foreground">
+          Built by <span className="text-foreground">Nikita Shilov</span> &{" "}
+          <span className="text-foreground">Elle</span>
+        </p>
+      </section>
     </div>
   );
 }

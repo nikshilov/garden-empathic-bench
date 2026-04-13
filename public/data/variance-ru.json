@@ -1,0 +1,478 @@
+{
+  "n_runs": 4,
+  "run_files": [
+    "empathic-memory-20260411-2134.json",
+    "empathic-memory-20260412-0928.json",
+    "empathic-memory-20260413-0000.json",
+    "empathic-memory-20260413-0106.json"
+  ],
+  "systems": [
+    {
+      "code": "G",
+      "name": "Garden",
+      "total": {
+        "mean": 24.37,
+        "std": 0.27
+      },
+      "rel": {
+        "mean": 7.83,
+        "std": 0.07
+      },
+      "spec": {
+        "mean": 8.89,
+        "std": 0.08
+      },
+      "act": {
+        "mean": 7.64,
+        "std": 0.19
+      },
+      "ranks_per_run": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "code": "D",
+      "name": "ST-openai",
+      "total": {
+        "mean": 22.23,
+        "std": 0.4
+      },
+      "rel": {
+        "mean": 6.73,
+        "std": 0.14
+      },
+      "spec": {
+        "mean": 8.5,
+        "std": 0.08
+      },
+      "act": {
+        "mean": 7.0,
+        "std": 0.2
+      },
+      "ranks_per_run": [
+        4,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "code": "N",
+      "name": "Cognee",
+      "total": {
+        "mean": 22.22,
+        "std": 0.42
+      },
+      "rel": {
+        "mean": 6.74,
+        "std": 0.15
+      },
+      "spec": {
+        "mean": 8.49,
+        "std": 0.08
+      },
+      "act": {
+        "mean": 7.0,
+        "std": 0.21
+      },
+      "ranks_per_run": [
+        3,
+        4,
+        4,
+        3
+      ]
+    },
+    {
+      "code": "K",
+      "name": "Letta",
+      "total": {
+        "mean": 22.18,
+        "std": 0.51
+      },
+      "rel": {
+        "mean": 6.73,
+        "std": 0.15
+      },
+      "spec": {
+        "mean": 8.5,
+        "std": 0.09
+      },
+      "act": {
+        "mean": 6.95,
+        "std": 0.29
+      },
+      "ranks_per_run": [
+        2,
+        3,
+        3,
+        8
+      ]
+    },
+    {
+      "code": "M",
+      "name": "LlamaIndex",
+      "total": {
+        "mean": 22.11,
+        "std": 0.4
+      },
+      "rel": {
+        "mean": 6.7,
+        "std": 0.15
+      },
+      "spec": {
+        "mean": 8.48,
+        "std": 0.08
+      },
+      "act": {
+        "mean": 6.94,
+        "std": 0.19
+      },
+      "ranks_per_run": [
+        7,
+        7,
+        6,
+        5
+      ]
+    },
+    {
+      "code": "L",
+      "name": "LangMem",
+      "total": {
+        "mean": 22.11,
+        "std": 0.41
+      },
+      "rel": {
+        "mean": 6.69,
+        "std": 0.15
+      },
+      "spec": {
+        "mean": 8.48,
+        "std": 0.08
+      },
+      "act": {
+        "mean": 6.94,
+        "std": 0.19
+      },
+      "ranks_per_run": [
+        6,
+        6,
+        5,
+        6
+      ]
+    },
+    {
+      "code": "O",
+      "name": "Weaviate",
+      "total": {
+        "mean": 22.08,
+        "std": 0.34
+      },
+      "rel": {
+        "mean": 6.7,
+        "std": 0.15
+      },
+      "spec": {
+        "mean": 8.44,
+        "std": 0.03
+      },
+      "act": {
+        "mean": 6.94,
+        "std": 0.18
+      },
+      "ranks_per_run": [
+        8,
+        8,
+        8,
+        4
+      ]
+    },
+    {
+      "code": "B",
+      "name": "sqlite-vec",
+      "total": {
+        "mean": 22.06,
+        "std": 0.43
+      },
+      "rel": {
+        "mean": 6.68,
+        "std": 0.16
+      },
+      "spec": {
+        "mean": 8.46,
+        "std": 0.08
+      },
+      "act": {
+        "mean": 6.93,
+        "std": 0.2
+      },
+      "ranks_per_run": [
+        5,
+        5,
+        7,
+        7
+      ]
+    },
+    {
+      "code": "F",
+      "name": "emogie",
+      "total": {
+        "mean": 16.91,
+        "std": 0.63
+      },
+      "rel": {
+        "mean": 4.63,
+        "std": 0.25
+      },
+      "spec": {
+        "mean": 7.74,
+        "std": 0.22
+      },
+      "act": {
+        "mean": 4.53,
+        "std": 0.2
+      },
+      "ranks_per_run": [
+        9,
+        9,
+        9,
+        10
+      ]
+    },
+    {
+      "code": "E",
+      "name": "Arkhon",
+      "total": {
+        "mean": 16.4,
+        "std": 0.35
+      },
+      "rel": {
+        "mean": 4.34,
+        "std": 0.18
+      },
+      "spec": {
+        "mean": 7.65,
+        "std": 0.28
+      },
+      "act": {
+        "mean": 4.41,
+        "std": 0.16
+      },
+      "ranks_per_run": [
+        10,
+        10,
+        10,
+        9
+      ]
+    },
+    {
+      "code": "A",
+      "name": "MemPalace",
+      "total": {
+        "mean": 15.97,
+        "std": 0.69
+      },
+      "rel": {
+        "mean": 4.15,
+        "std": 0.28
+      },
+      "spec": {
+        "mean": 7.62,
+        "std": 0.27
+      },
+      "act": {
+        "mean": 4.2,
+        "std": 0.22
+      },
+      "ranks_per_run": [
+        11,
+        11,
+        11,
+        11
+      ]
+    },
+    {
+      "code": "I",
+      "name": "OpenMemory",
+      "total": {
+        "mean": 13.94,
+        "std": 0.58
+      },
+      "rel": {
+        "mean": 3.25,
+        "std": 0.26
+      },
+      "spec": {
+        "mean": 7.58,
+        "std": 0.15
+      },
+      "act": {
+        "mean": 3.11,
+        "std": 0.19
+      },
+      "ranks_per_run": [
+        12,
+        12,
+        12,
+        12
+      ]
+    },
+    {
+      "code": "J",
+      "name": "mem0",
+      "total": {
+        "mean": 11.2,
+        "std": 0.59
+      },
+      "rel": {
+        "mean": 4.21,
+        "std": 0.14
+      },
+      "spec": {
+        "mean": 3.41,
+        "std": 0.27
+      },
+      "act": {
+        "mean": 3.58,
+        "std": 0.29
+      },
+      "ranks_per_run": [
+        13,
+        13,
+        13,
+        13
+      ]
+    },
+    {
+      "code": "C",
+      "name": "ST-transformers",
+      "total": {
+        "mean": 10.03,
+        "std": 0.16
+      },
+      "rel": {
+        "mean": 1.74,
+        "std": 0.13
+      },
+      "spec": {
+        "mean": 6.29,
+        "std": 0.06
+      },
+      "act": {
+        "mean": 2.0,
+        "std": 0.09
+      },
+      "ranks_per_run": [
+        15,
+        14
+      ]
+    },
+    {
+      "code": "H",
+      "name": "Graphiti",
+      "total": {
+        "mean": 7.7,
+        "std": 1.88
+      },
+      "rel": {
+        "mean": 1.58,
+        "std": 0.61
+      },
+      "spec": {
+        "mean": 4.52,
+        "std": 0.71
+      },
+      "act": {
+        "mean": 1.6,
+        "std": 0.62
+      },
+      "ranks_per_run": [
+        14,
+        15,
+        14,
+        14
+      ]
+    }
+  ],
+  "garden_per_judge": [
+    {
+      "judge": "Opus 4.6",
+      "provider": "anthropic",
+      "mean": 23.4,
+      "std": 0.52
+    },
+    {
+      "judge": "Sonnet 4.6",
+      "provider": "anthropic",
+      "mean": 23.0,
+      "std": 0.43
+    },
+    {
+      "judge": "Haiku 4.5",
+      "provider": "anthropic",
+      "mean": 24.7,
+      "std": 0.62
+    },
+    {
+      "judge": "GLM-5",
+      "provider": "zai",
+      "mean": 25.2,
+      "std": 0.98
+    },
+    {
+      "judge": "DeepSeek V3.2",
+      "provider": "dashscope",
+      "mean": 24.27,
+      "std": 1.64
+    },
+    {
+      "judge": "Qwen 3.6 Plus",
+      "provider": "dashscope",
+      "mean": 25.15,
+      "std": 1.02
+    },
+    {
+      "judge": "Kimi K2.5",
+      "provider": "moonshot",
+      "mean": 24.25,
+      "std": 1.5
+    },
+    {
+      "judge": "Grok 3",
+      "provider": "xai",
+      "mean": 24.65,
+      "std": 0.68
+    },
+    {
+      "judge": "GPT-4o",
+      "provider": "openai",
+      "mean": 23.2,
+      "std": 1.52
+    },
+    {
+      "judge": "Gemini 2.5 Flash",
+      "provider": "google",
+      "mean": 25.55,
+      "std": 0.75
+    },
+    {
+      "judge": "GPT-5.4",
+      "provider": "openai",
+      "mean": 23.7,
+      "std": 0.99
+    },
+    {
+      "judge": "GPT-5.4 Pro",
+      "provider": "openai_responses",
+      "mean": 25.12,
+      "std": 1.24
+    }
+  ],
+  "gap_to_second": {
+    "mean": 2.13,
+    "std": 0.23
+  },
+  "language": "ru"
+}

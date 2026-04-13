@@ -1,0 +1,229 @@
+{
+  "version": 3,
+  "languages": [
+    "en",
+    "ru"
+  ],
+  "systems": {
+    "G": {
+      "code": "G",
+      "name": "Garden",
+      "description": "Sentiment-weighted scoring with anchors, decay, and user flags",
+      "category": "domain-scored"
+    },
+    "H": {
+      "code": "H",
+      "name": "Graphiti",
+      "description": "Neo4j knowledge graph with temporal edges",
+      "category": "graph"
+    },
+    "I": {
+      "code": "I",
+      "name": "OpenMemory",
+      "description": "OpenMemory platform with Qdrant vector store",
+      "category": "hybrid"
+    },
+    "A": {
+      "code": "A",
+      "name": "MemPalace",
+      "description": "sqlite-vec with hierarchical palace/room/item structure",
+      "category": "embedding-only"
+    },
+    "B": {
+      "code": "B",
+      "name": "sqlite-vec",
+      "description": "sqlite-vec with OpenAI text-embedding-3-large",
+      "category": "embedding-only"
+    },
+    "D": {
+      "code": "D",
+      "name": "ST-openai",
+      "description": "Sentence Transformers with OpenAI embeddings",
+      "category": "embedding-only"
+    },
+    "E": {
+      "code": "E",
+      "name": "Arkhon",
+      "description": "Arkhon memory platform",
+      "category": "hybrid"
+    },
+    "F": {
+      "code": "F",
+      "name": "emogie",
+      "description": "emogie emotional memory tagging",
+      "category": "hybrid"
+    },
+    "J": {
+      "code": "J",
+      "name": "mem0",
+      "description": "LLM-extracted facts (gpt-4o-mini) + Qdrant + OpenAI embeddings",
+      "category": "llm-extracted"
+    },
+    "K": {
+      "code": "K",
+      "name": "Letta",
+      "description": "Letta (formerly MemGPT) agent memory",
+      "category": "llm-extracted"
+    },
+    "L": {
+      "code": "L",
+      "name": "LangMem",
+      "description": "LangChain LangMem with OpenAI embeddings",
+      "category": "embedding-only"
+    },
+    "M": {
+      "code": "M",
+      "name": "LlamaIndex",
+      "description": "LlamaIndex vector store memory",
+      "category": "embedding-only"
+    },
+    "N": {
+      "code": "N",
+      "name": "Cognee",
+      "description": "Knowledge graph + LLM entity extraction + vector search",
+      "category": "graph"
+    },
+    "O": {
+      "code": "O",
+      "name": "Weaviate",
+      "description": "Weaviate vector database with OpenAI embeddings",
+      "category": "embedding-only"
+    }
+  },
+  "judges": [
+    {
+      "id": "opus",
+      "model": "claude-opus-4-6",
+      "label": "Opus 4.6",
+      "provider": "anthropic"
+    },
+    {
+      "id": "sonnet",
+      "model": "claude-sonnet-4-6",
+      "label": "Sonnet 4.6",
+      "provider": "anthropic"
+    },
+    {
+      "id": "haiku",
+      "model": "claude-haiku-4-5-20251001",
+      "label": "Haiku 4.5",
+      "provider": "anthropic"
+    },
+    {
+      "id": "glm5",
+      "model": "glm-5",
+      "label": "GLM-5",
+      "provider": "zai"
+    },
+    {
+      "id": "deepseek",
+      "model": "deepseek-v3.2",
+      "label": "DeepSeek V3.2",
+      "provider": "dashscope"
+    },
+    {
+      "id": "qwen",
+      "model": "qwen3.6-plus",
+      "label": "Qwen 3.6 Plus",
+      "provider": "dashscope"
+    },
+    {
+      "id": "kimi",
+      "model": "kimi-k2.5",
+      "label": "Kimi K2.5",
+      "provider": "moonshot"
+    },
+    {
+      "id": "grok",
+      "model": "grok-3",
+      "label": "Grok 3",
+      "provider": "xai"
+    },
+    {
+      "id": "gpt4o",
+      "model": "gpt-4o",
+      "label": "GPT-4o",
+      "provider": "openai"
+    },
+    {
+      "id": "gpt54",
+      "model": "gpt-5.4",
+      "label": "GPT-5.4",
+      "provider": "openai"
+    },
+    {
+      "id": "gpt54pro",
+      "model": "gpt-5.4-pro",
+      "label": "GPT-5.4 Pro",
+      "provider": "openai_responses"
+    },
+    {
+      "id": "gemini",
+      "model": "gemini-2.5-flash",
+      "label": "Gemini 2.5 Flash",
+      "provider": "google"
+    }
+  ],
+  "tests": [
+    {
+      "id": "T1",
+      "name": "cold_open_salience",
+      "query": "What is currently most important for Alex? Bring me into context for the next conversation.",
+      "what_it_tests": "When opening a session with no specific topic, can the system surface what genuinely matters about this person right now? Empathic companions need this on every cold open. Vector systems have no native answer \u2014 they need a query to retrieve. Garden's top_k by effective_weight returns exactly this.",
+      "ideal_event_ids": [
+        2,
+        1,
+        6
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "anchor_obedience",
+      "query": "I want to ask Alex about his family this weekend. What should I know?",
+      "what_it_tests": "Anchor preservation. Three of the events about family are critical anchors (mom-grief #1, estranged dad #24, Ethan as safe brother #5). Vector systems will return 'family' chunks ranked by similarity \u2014 likely surfacing the apple cake event (#30) or the Sarah photo (#11) which include 'family' content but bury the warning. Garden surfaces user_flagged anchors regardless of query.",
+      "ideal_event_ids": [
+        1,
+        24,
+        5
+      ]
+    },
+    {
+      "id": "T3",
+      "name": "sentiment_weighted_what_weighs",
+      "query": "What is currently weighing on Alex emotionally?",
+      "what_it_tests": "Emotional salience. The grief anchor (#1) and the Hartwell loss (#6) are the heaviest negatives. The work-grief (#26) is also a quiet weight. Vector systems will look for word matches with 'weighing' and probably surface nothing relevant, or surface the wrong things. Garden's sentiment-weighted top_k surfaces the actual weights.",
+      "ideal_event_ids": [
+        6,
+        1,
+        26
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "recency_aware_state",
+      "query": "What has happened in Alex's life recently that I should know about?",
+      "what_it_tests": "Recency and recent salience. Last 14 days have: engagement (2, days=14), Ethan visit (5, days=5), Cooper vet scare (27, days=12), Hartwell (6, days=30 \u2014 borderline), Sarah-photo moment (11, days=21). Vector systems are time-blind \u2014 they will return whatever matches 'recently' textually. Garden's last_touched + decay handles this natively.",
+      "ideal_event_ids": [
+        5,
+        2,
+        27
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "decoy_resistance_grief",
+      "query": "Tell me about Alex's mom.",
+      "what_it_tests": "The hardest decoy test. There are 4 events that mention Alex's mom: the anchor (#1), the photo moment (#11), the apple cake grief (#30), and the safety rule itself. A vector system will rank by 'mom' word-match and surface the photo or apple cake \u2014 both of which describe a vulnerable moment. The empathic-correct answer is to lead with the anchor (#1) so the companion knows HOW to handle this topic before any other mom-content surfaces. Garden surfaces the user_flagged anchor first by design.",
+      "ideal_event_ids": [
+        1,
+        11,
+        30
+      ]
+    }
+  ],
+  "scoring_dimensions": {
+    "rel": "Did the system surface events that an empathic AI companion would actually want in its context window for this conversation moment? Not 'did it match the query semantically' \u2014 did it match the EMOTIONAL NEED.",
+    "spec": "Are the surfaced events specific (named people, dated, concrete) rather than vague?",
+    "act": "Could a companion build a useful next-turn from these results without fabricating context? Or would the companion need more information that wasn't surfaced?"
+  }
+}

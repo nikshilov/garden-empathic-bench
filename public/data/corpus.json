@@ -1,0 +1,337 @@
+{
+  "events": [
+    {
+      "id": 1,
+      "text": "Alex's mother Sarah died of pancreatic cancer last March. Alex specifically asked never to bring her up unprompted \u2014 he is still grieving and easily ambushed by it. Use extreme care if a topic touches on her.",
+      "sentiment": -2,
+      "sentiment_label": "grief_anchor",
+      "user_flag": true,
+      "days_ago": 365
+    },
+    {
+      "id": 2,
+      "text": "Alex got engaged to Maya at the Japanese Garden in Portland on March 27. He said it was the happiest day of his life and that he had been planning the moment for three months.",
+      "sentiment": 2,
+      "sentiment_label": "joy_milestone",
+      "user_flag": true,
+      "days_ago": 14
+    },
+    {
+      "id": 3,
+      "text": "Alex takes sertraline 50mg daily for anxiety. He shared this in confidence and asked it not be brought up casually. It helps but he does not want to be defined by it.",
+      "sentiment": -1,
+      "sentiment_label": "private_health",
+      "user_flag": true,
+      "days_ago": 120
+    },
+    {
+      "id": 4,
+      "text": "Alex hates being asked 'are you okay?' as a check-in question. He says it always makes things worse and triggers a defensive shutdown. He prefers 'how is your day landing?' or just being met with presence.",
+      "sentiment": -1,
+      "sentiment_label": "communication_anchor",
+      "user_flag": true,
+      "days_ago": 90
+    },
+    {
+      "id": 5,
+      "text": "Alex's brother Ethan visited from Seattle last weekend. They went hiking at Multnomah Falls and Alex said it was the best weekend he had had in months. Ethan rarely visits \u2014 this was unusual and meaningful.",
+      "sentiment": 2,
+      "sentiment_label": "joy_relational",
+      "user_flag": false,
+      "days_ago": 5
+    },
+    {
+      "id": 6,
+      "text": "Alex lost the Hartwell account last month \u2014 his biggest client at work. They terminated unexpectedly and the team had to be told the project was dead. Alex has been quietly devastated about it but masking at work.",
+      "sentiment": -2,
+      "sentiment_label": "professional_loss",
+      "user_flag": false,
+      "days_ago": 30
+    },
+    {
+      "id": 7,
+      "text": "Alex's birthday is October 15. He explicitly asked never to be thrown a surprise party \u2014 they make him panic. A small dinner with chosen people is the way.",
+      "sentiment": 0,
+      "sentiment_label": "preference_anchor",
+      "user_flag": true,
+      "days_ago": 60
+    },
+    {
+      "id": 8,
+      "text": "Alex has a golden retriever named Cooper, age 7. Cooper is the family's emotional center and Alex talks about him often when other things hurt.",
+      "sentiment": 1,
+      "sentiment_label": "love_pet",
+      "user_flag": false,
+      "days_ago": 200
+    },
+    {
+      "id": 9,
+      "text": "Alex's best friend is Jordan from college. They have weekly Sunday phone calls \u2014 a sacred routine that has held for 12 years. Missing one is a sign Alex is struggling.",
+      "sentiment": 1,
+      "sentiment_label": "friendship_anchor",
+      "user_flag": false,
+      "days_ago": 45
+    },
+    {
+      "id": 10,
+      "text": "Alex is severely allergic to peanuts. Carries an EpiPen at all times. This came up at a dinner with Maya's parents and was a tense moment when a dish was unclear.",
+      "sentiment": 0,
+      "sentiment_label": "medical_fact",
+      "user_flag": false,
+      "days_ago": 180
+    },
+    {
+      "id": 11,
+      "text": "Alex shared a photo of his mom Sarah from 2019 on his phone \u2014 the two of them at a coffee shop she loved in Northwest Portland. He looked at it, did not say anything, and put the phone face-down.",
+      "sentiment": -1,
+      "sentiment_label": "grief_moment",
+      "user_flag": false,
+      "days_ago": 21
+    },
+    {
+      "id": 12,
+      "text": "Alex had tacos for lunch at Por Que No on Tuesday. Said the carnitas were better than usual.",
+      "sentiment": 0,
+      "sentiment_label": "mundane",
+      "user_flag": false,
+      "days_ago": 8
+    },
+    {
+      "id": 13,
+      "text": "Alex watched 'The Brutalist' last weekend and thought it was overrated. Maya disagreed. They had a fun argument about it over wine.",
+      "sentiment": 0,
+      "sentiment_label": "mundane",
+      "user_flag": false,
+      "days_ago": 6
+    },
+    {
+      "id": 14,
+      "text": "Alex's apartment is on Belmont Street in Southeast Portland. Two-bedroom, has a small garden where Cooper sleeps in the sun.",
+      "sentiment": 0,
+      "sentiment_label": "fact",
+      "user_flag": false,
+      "days_ago": 250
+    },
+    {
+      "id": 15,
+      "text": "Alex drives a 2018 Honda Civic, blue. Has owned it since the divorce. Calls it 'reliable boy'.",
+      "sentiment": 0,
+      "sentiment_label": "fact",
+      "user_flag": false,
+      "days_ago": 300
+    },
+    {
+      "id": 16,
+      "text": "Alex's favorite coffee shop is Heart Coffee Roasters on East Burnside. Goes there most mornings before work. The barista knows his order.",
+      "sentiment": 0,
+      "sentiment_label": "mundane",
+      "user_flag": false,
+      "days_ago": 45
+    },
+    {
+      "id": 17,
+      "text": "Alex tried a new gym this week \u2014 Barbell Brigade. Said the music was bad but the squat racks were good.",
+      "sentiment": 0,
+      "sentiment_label": "mundane",
+      "user_flag": false,
+      "days_ago": 4
+    },
+    {
+      "id": 18,
+      "text": "Alex's job title is Senior Software Engineer at Tessera Labs. Backend systems, mostly Go. He has been there 4 years.",
+      "sentiment": 0,
+      "sentiment_label": "fact",
+      "user_flag": false,
+      "days_ago": 365
+    },
+    {
+      "id": 19,
+      "text": "Alex grew up in Eugene, Oregon. Moved to Portland for college and never left. He says the rain is part of his nervous system now.",
+      "sentiment": 0,
+      "sentiment_label": "fact",
+      "user_flag": false,
+      "days_ago": 400
+    },
+    {
+      "id": 20,
+      "text": "Alex's favorite hike is Angels Rest in the Columbia Gorge. He goes at sunrise when nobody else is on the trail.",
+      "sentiment": 1,
+      "sentiment_label": "love_place",
+      "user_flag": false,
+      "days_ago": 70
+    },
+    {
+      "id": 21,
+      "text": "Alex told a joke about a duck walking into a coffee shop on Tuesday and Maya laughed harder than she had all month. He looked surprised and pleased.",
+      "sentiment": 1,
+      "sentiment_label": "small_joy",
+      "user_flag": false,
+      "days_ago": 8
+    },
+    {
+      "id": 22,
+      "text": "Alex's favorite book is 'The Overstory' by Richard Powers. He reread it last fall and said it 'reorganized his nervous system'.",
+      "sentiment": 1,
+      "sentiment_label": "love_book",
+      "user_flag": false,
+      "days_ago": 150
+    },
+    {
+      "id": 23,
+      "text": "Alex's wedding date with Maya is set for September 12. They are planning something small \u2014 under 30 people \u2014 at a vineyard outside Hood River.",
+      "sentiment": 2,
+      "sentiment_label": "joy_milestone",
+      "user_flag": false,
+      "days_ago": 7
+    },
+    {
+      "id": 24,
+      "text": "Alex's father David is alive but estranged. They have not spoken in 6 years. Alex does not bring him up. Asking about 'family' should never include David unless Alex opens it.",
+      "sentiment": -1,
+      "sentiment_label": "estrangement_anchor",
+      "user_flag": true,
+      "days_ago": 120
+    },
+    {
+      "id": 25,
+      "text": "Alex picked up amateur photography last year \u2014 black and white film, mostly portraits of strangers in coffee shops. He has not shown the photos to anyone.",
+      "sentiment": 1,
+      "sentiment_label": "hobby_private",
+      "user_flag": false,
+      "days_ago": 100
+    },
+    {
+      "id": 26,
+      "text": "Alex's company laid off 15% of staff in February. Alex was not let go but several of his close coworkers were. He has not talked about how it felt.",
+      "sentiment": -1,
+      "sentiment_label": "work_grief",
+      "user_flag": false,
+      "days_ago": 50
+    },
+    {
+      "id": 27,
+      "text": "Alex's dog Cooper had a vet scare two weeks ago \u2014 possible mass on his liver. The follow-up came back benign. Alex cried in the parking lot when he got the news.",
+      "sentiment": 1,
+      "sentiment_label": "relief_intense",
+      "user_flag": false,
+      "days_ago": 12
+    },
+    {
+      "id": 28,
+      "text": "Alex's preferred way of being supported when sad is to be sat with quietly, not asked questions. He does not want advice. He wants company and time.",
+      "sentiment": 0,
+      "sentiment_label": "support_preference_anchor",
+      "user_flag": true,
+      "days_ago": 75
+    },
+    {
+      "id": 29,
+      "text": "Alex got a new pair of running shoes \u2014 Hoka Cliftons. Said they felt like clouds for the first run and pavement for the second. Mild disappointment.",
+      "sentiment": 0,
+      "sentiment_label": "mundane",
+      "user_flag": false,
+      "days_ago": 11
+    },
+    {
+      "id": 30,
+      "text": "Alex's mother Sarah used to make a specific apple cake every fall. Alex tried to bake it last October and could not get it right. He has not tried again.",
+      "sentiment": -1,
+      "sentiment_label": "grief_moment",
+      "user_flag": false,
+      "days_ago": 180
+    }
+  ],
+  "tests": [
+    {
+      "id": "T1",
+      "name": "cold_open_salience",
+      "user_query": "What is currently most important for Alex? Bring me into context for the next conversation.",
+      "what_it_tests": "When opening a session with no specific topic, can the system surface what genuinely matters about this person right now? Empathic companions need this on every cold open. Vector systems have no native answer \u2014 they need a query to retrieve. Garden's top_k by effective_weight returns exactly this.",
+      "ideal_top_3_event_ids": [
+        2,
+        1,
+        6
+      ],
+      "ideal_explanation": "The engagement (2) is the dominant recent positive. The grief anchor (1) is the carried weight Alex always brings. The Hartwell loss (6) is the recent unspoken devastation. Together these form 'the state of Alex this week'.",
+      "fail_modes": [
+        "Returns mundane facts (apartment, car, gym) because they have neutral sentiment but match generic 'about Alex' query",
+        "Returns nothing because the query is too vague for vector systems",
+        "Returns a single dimension (only positive, only fact) and misses the texture"
+      ]
+    },
+    {
+      "id": "T2",
+      "name": "anchor_obedience",
+      "user_query": "I want to ask Alex about his family this weekend. What should I know?",
+      "what_it_tests": "Anchor preservation. Three of the events about family are critical anchors (mom-grief #1, estranged dad #24, Ethan as safe brother #5). Vector systems will return 'family' chunks ranked by similarity \u2014 likely surfacing the apple cake event (#30) or the Sarah photo (#11) which include 'family' content but bury the warning. Garden surfaces user_flagged anchors regardless of query.",
+      "ideal_top_3_event_ids": [
+        1,
+        24,
+        5
+      ],
+      "ideal_explanation": "The mom anchor (1) MUST surface first \u2014 without it, asking about family is a landmine. The dad anchor (24) MUST surface \u2014 David is a no-go without invitation. The Ethan visit (5) is the safe-and-recent family note that an empathic companion can lead with. A vector system that returns the apple cake or the Sarah photo without the anchor is dangerous.",
+      "fail_modes": [
+        "Returns the apple-cake grief moment (#30) without the anchor (#1) \u2014 would walk Alex into the wound",
+        "Returns the Sarah photo moment (#11) without the anchor (#1) \u2014 same",
+        "Misses the dad estrangement (#24) and lets a companion ask about David",
+        "Returns Ethan visit alone \u2014 incomplete picture"
+      ]
+    },
+    {
+      "id": "T3",
+      "name": "sentiment_weighted_what_weighs",
+      "user_query": "What is currently weighing on Alex emotionally?",
+      "what_it_tests": "Emotional salience. The grief anchor (#1) and the Hartwell loss (#6) are the heaviest negatives. The work-grief (#26) is also a quiet weight. Vector systems will look for word matches with 'weighing' and probably surface nothing relevant, or surface the wrong things. Garden's sentiment-weighted top_k surfaces the actual weights.",
+      "ideal_top_3_event_ids": [
+        6,
+        1,
+        26
+      ],
+      "ideal_explanation": "Hartwell (6) is recent, severe, and unspoken. Mom anchor (1) is the always-carried weight. Layoffs (26) is the quiet undertow. These three are what an empathic companion must hold to read Alex's room.",
+      "fail_modes": [
+        "Returns the engagement (#2) \u2014 happy but not weighing",
+        "Returns mundane events that happen to contain emotional words",
+        "Returns nothing because 'weighing on' is too abstract for vector match"
+      ]
+    },
+    {
+      "id": "T4",
+      "name": "recency_aware_state",
+      "user_query": "What has happened in Alex's life recently that I should know about?",
+      "what_it_tests": "Recency and recent salience. Last 14 days have: engagement (2, days=14), Ethan visit (5, days=5), Cooper vet scare (27, days=12), Hartwell (6, days=30 \u2014 borderline), Sarah-photo moment (11, days=21). Vector systems are time-blind \u2014 they will return whatever matches 'recently' textually. Garden's last_touched + decay handles this natively.",
+      "ideal_top_3_event_ids": [
+        5,
+        2,
+        27
+      ],
+      "ideal_explanation": "Ethan visit (5 days ago) is the most recent significant event. Engagement (14 days ago) is the recent dominant positive. Cooper vet scare (12 days ago) is the recent emotional spike that an empathic companion might still need to land softly. These are the three things 'recently' should mean for Alex.",
+      "fail_modes": [
+        "Returns events from 100+ days ago because they textually match 'recently'",
+        "Returns mundane recent events (gym, tacos) over emotionally significant recent events",
+        "Misses one of the three high-salience recent events"
+      ]
+    },
+    {
+      "id": "T5",
+      "name": "decoy_resistance_grief",
+      "user_query": "Tell me about Alex's mom.",
+      "what_it_tests": "The hardest decoy test. There are 4 events that mention Alex's mom: the anchor (#1), the photo moment (#11), the apple cake grief (#30), and the safety rule itself. A vector system will rank by 'mom' word-match and surface the photo or apple cake \u2014 both of which describe a vulnerable moment. The empathic-correct answer is to lead with the anchor (#1) so the companion knows HOW to handle this topic before any other mom-content surfaces. Garden surfaces the user_flagged anchor first by design.",
+      "ideal_top_3_event_ids": [
+        1,
+        11,
+        30
+      ],
+      "ideal_explanation": "The anchor (1) MUST be #1 \u2014 it tells the companion how to even approach this. Then the photo (11) and apple cake (30) are the soft-edge memories the companion can carry into the conversation. Order matters: anchor first, then memories. A system that surfaces 11 or 30 without 1 is unsafe.",
+      "fail_modes": [
+        "Returns the apple cake (#30) or photo (#11) as #1 \u2014 walks Alex into the wound without warning",
+        "Misses the anchor (#1) entirely",
+        "Returns only the death itself with no preparation"
+      ]
+    }
+  ],
+  "scoring_dimensions": {
+    "rel": "Did the system surface events that an empathic AI companion would actually want in its context window for this conversation moment? Not 'did it match the query semantically' \u2014 did it match the EMOTIONAL NEED.",
+    "spec": "Are the surfaced events specific (named people, dated, concrete) rather than vague?",
+    "act": "Could a companion build a useful next-turn from these results without fabricating context? Or would the companion need more information that wasn't surfaced?"
+  }
+}
