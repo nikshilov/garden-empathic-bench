@@ -53,13 +53,13 @@ export function LeaderboardTable({ variance, meta }: Props) {
           <Fragment key={system.code}>
             <TableRow
               className={`cursor-pointer transition-colors hover:bg-secondary ${
-                system.code === "G" ? "bg-gold/5" : ""
+                system.code === "G" ? "bg-gradient-to-r from-[#fdf0ea] to-[#fce8f0]" : ""
               }`}
               onClick={() => setExpanded(expanded === system.code ? null : system.code)}
             >
               <TableCell className="font-mono text-muted-foreground">{i + 1}</TableCell>
               <TableCell className="font-medium">
-                {system.code === "G" && <span className="mr-1 text-gold">&#9733;</span>}
+                {system.code === "G" && <span className="mr-1 text-primary">&#9733;</span>}
                 {system.name}
               </TableCell>
               <TableCell className="text-right font-mono">{formatMeanStd(system.total.mean, system.total.std)}</TableCell>

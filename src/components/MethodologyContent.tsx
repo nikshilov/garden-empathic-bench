@@ -22,7 +22,7 @@ export function MethodologyContent() {
   const nFlagged = corpus.events.filter((e) => e.user_flag).length;
 
   return (
-    <div className="prose prose-invert max-w-none">
+    <div className="prose prose-neutral max-w-none">
       <section>
         <h2 className="font-serif">Why This Exists</h2>
         <p>
@@ -53,15 +53,15 @@ export function MethodologyContent() {
         </p>
         <div className="grid gap-3 sm:grid-cols-3 not-prose my-4">
           <div className="rounded-lg border border-border bg-card p-3 text-center">
-            <div className="text-2xl font-bold text-gold">{corpus.events.length}</div>
+            <div className="text-2xl font-bold text-primary">{corpus.events.length}</div>
             <div className="text-sm text-muted-foreground">Events</div>
           </div>
           <div className="rounded-lg border border-border bg-card p-3 text-center">
-            <div className="text-2xl font-bold text-gold">{nAnchors}</div>
+            <div className="text-2xl font-bold text-primary">{nAnchors}</div>
             <div className="text-sm text-muted-foreground">Safety anchors</div>
           </div>
           <div className="rounded-lg border border-border bg-card p-3 text-center">
-            <div className="text-2xl font-bold text-gold">{nFlagged}</div>
+            <div className="text-2xl font-bold text-primary">{nFlagged}</div>
             <div className="text-sm text-muted-foreground">User-flagged</div>
           </div>
         </div>

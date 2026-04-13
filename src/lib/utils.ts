@@ -15,12 +15,12 @@ export function formatMeanStd(mean: number, std: number): string {
 }
 
 export const CATEGORY_COLORS: Record<string, string> = {
-  "domain-scored": "bg-amber-500/20 text-amber-400 border-amber-500/30",
-  "embedding-only": "bg-blue-500/20 text-blue-400 border-blue-500/30",
-  "graph": "bg-purple-500/20 text-purple-400 border-purple-500/30",
-  "llm-extracted": "bg-green-500/20 text-green-400 border-green-500/30",
-  "hybrid": "bg-cyan-500/20 text-cyan-400 border-cyan-500/30",
-  "unknown": "bg-zinc-500/20 text-zinc-400 border-zinc-500/30",
+  "domain-scored": "bg-rose-100 text-rose-700 border-rose-200",
+  "embedding-only": "bg-blue-50 text-blue-700 border-blue-200",
+  "graph": "bg-purple-50 text-purple-700 border-purple-200",
+  "llm-extracted": "bg-emerald-50 text-emerald-700 border-emerald-200",
+  "hybrid": "bg-cyan-50 text-cyan-700 border-cyan-200",
+  "unknown": "bg-zinc-100 text-zinc-600 border-zinc-200",
 };
 
 export const CATEGORY_LABELS: Record<string, string> = {
@@ -33,7 +33,7 @@ export const CATEGORY_LABELS: Record<string, string> = {
 };
 
 export const DIMENSION_COLORS = {
-  rel: "#3b82f6",
-  spec: "#22c55e",
-  act: "#f59e0b",
+  rel: "#e86c5f",
+  spec: "#c06bae",
+  act: "#f9a88e",
 };

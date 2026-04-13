@@ -55,7 +55,7 @@ export function SystemDetail({ system, meta, variance }: Props) {
             <span
               key={i}
               className={`inline-flex h-7 w-7 items-center justify-center rounded-full text-xs font-medium ${
-                r === 1 ? "bg-gold/20 text-gold" : "bg-secondary text-muted-foreground"
+                r === 1 ? "bg-primary/10 text-primary" : "bg-secondary text-muted-foreground"
               }`}
             >
               {r}

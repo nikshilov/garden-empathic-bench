@@ -44,7 +44,7 @@ export default function ExplorerPage() {
                 onClick={() => { setLang(l); setRunIndex(1); }}
                 className={`rounded-md px-3 py-1 text-sm font-medium transition-colors ${
                   lang === l
-                    ? "bg-gold text-background"
+                    ? "bg-gradient-to-r from-[#f9a88e] to-[#e86c5f] text-white"
                     : "bg-secondary text-muted-foreground hover:text-foreground"
                 }`}
               >

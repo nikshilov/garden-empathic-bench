@@ -4,7 +4,7 @@ export function Footer() {
       <div className="mx-auto max-w-6xl px-4 text-center text-sm text-muted-foreground">
         <p>
           Built by{" "}
-          <a href="https://github.com/nicshilov" className="text-foreground hover:text-gold transition-colors" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/nicshilov" className="text-foreground hover:text-primary transition-colors" target="_blank" rel="noopener noreferrer">
             Nikita Shilov
           </a>
           {" & "}

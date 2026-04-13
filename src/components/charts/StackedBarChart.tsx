@@ -24,11 +24,11 @@ export function StackedBarChart({ systems }: { systems: SystemVariance[] }) {
   return (
     <ResponsiveContainer width="100%" height={Math.max(400, systems.length * 32)}>
       <BarChart data={data} layout="vertical" margin={{ left: 100, right: 20, top: 5, bottom: 5 }}>
-        <XAxis type="number" domain={[0, 30]} tick={{ fill: "#a1a1a1", fontSize: 12 }} />
-        <YAxis type="category" dataKey="name" tick={{ fill: "#fafafa", fontSize: 12 }} width={95} />
+        <XAxis type="number" domain={[0, 30]} tick={{ fill: "#8b7355", fontSize: 12 }} />
+        <YAxis type="category" dataKey="name" tick={{ fill: "#1a0f0a", fontSize: 12 }} width={95} />
         <Tooltip
-          contentStyle={{ background: "#141414", border: "1px solid #262626", borderRadius: 8 }}
-          labelStyle={{ color: "#fafafa" }}
+          contentStyle={{ background: "#ffffff", border: "1px solid #f0e6dc", borderRadius: 8, boxShadow: "0 4px 12px rgba(0,0,0,0.08)" }}
+          labelStyle={{ color: "#1a0f0a" }}
           formatter={(value, name) => {
             const num = typeof value === "number" ? value : 0;
             const label =

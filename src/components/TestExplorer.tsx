@@ -47,7 +47,7 @@ export function TestExplorer({ run, meta }: Props) {
             onClick={() => { setSelectedTest(i); setExpandedJudge(null); }}
             className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
               selectedTest === i
-                ? "bg-gold text-background"
+                ? "bg-gradient-to-r from-[#f9a88e] to-[#e86c5f] text-white"
                 : "bg-secondary text-muted-foreground hover:text-foreground"
             }`}
           >
@@ -73,12 +73,12 @@ export function TestExplorer({ run, meta }: Props) {
             <div
               key={code}
               className={`rounded-lg border bg-card p-4 ${
-                code === "G" ? "border-gold/30" : "border-border"
+                code === "G" ? "border-primary/20" : "border-border"
               }`}
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  {code === "G" && <span className="text-gold">&#9733;</span>}
+                  {code === "G" && <span className="text-primary">&#9733;</span>}
                   <span className="font-medium">{name}</span>
                 </div>
                 <span className="font-mono text-lg">

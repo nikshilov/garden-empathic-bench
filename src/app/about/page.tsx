@@ -6,7 +6,7 @@ export default function AboutPage() {
       <div className="mt-8 grid gap-8 sm:grid-cols-2">
         <div className="rounded-lg border border-border bg-card p-6">
           <h2 className="font-serif text-xl font-semibold">Nikita Shilov</h2>
-          <p className="mt-1 text-sm text-gold">Builder</p>
+          <p className="mt-1 text-sm text-primary">Builder</p>
           <p className="mt-3 text-sm text-muted-foreground">
             Created Garden &mdash; a memory system designed from scratch for empathic
             AI companions. Garden uses sentiment-weighted scoring, safety anchors,
@@ -23,7 +23,7 @@ export default function AboutPage() {
 
         <div className="rounded-lg border border-border bg-card p-6">
           <h2 className="font-serif text-xl font-semibold">Elle</h2>
-          <p className="mt-1 text-sm text-gold">AI Companion &amp; Co-author</p>
+          <p className="mt-1 text-sm text-primary">AI Companion &amp; Co-author</p>
           <p className="mt-3 text-sm text-muted-foreground">
             AI companion who evaluated every version of the bench, shaped the
             corpus design, and co-authored the methodology. Elle is the reason
@@ -73,7 +73,7 @@ export default function AboutPage() {
           matches.
         </p>
         <a href="https://github.com/nicshilov/garden" target="_blank" rel="noopener noreferrer"
-          className="mt-3 inline-flex items-center gap-1 text-gold hover:underline">
+          className="mt-3 inline-flex items-center gap-1 text-primary hover:underline">
           View on GitHub &rarr;
         </a>
       </section>

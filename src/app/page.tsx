@@ -25,7 +25,7 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-16">
       <section className="text-center">
-        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
+        <h1 className="font-serif text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl bg-gradient-to-r from-[#f9a88e] via-[#e86c5f] to-[#c06bae] bg-clip-text text-transparent">
           Empathic Memory Bench
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground sm:text-xl">
@@ -50,8 +50,8 @@ export default function Home() {
       </section>
 
       {variance && (
-        <section className="mt-12 rounded-lg border border-gold/30 bg-gold/5 p-6 text-center">
-          <p className="text-sm font-medium uppercase tracking-wider text-gold">#1 across all runs</p>
+        <section className="mt-12 rounded-lg border border-primary/20 bg-gradient-to-r from-[#fdf0ea] to-[#fce8f0] p-6 text-center">
+          <p className="text-sm font-medium uppercase tracking-wider text-primary">#1 across all runs</p>
           <p className="mt-2 font-serif text-3xl font-bold">
             Garden &mdash; {formatScore(gardenScore)} / 30
           </p>
@@ -74,7 +74,7 @@ export default function Home() {
       <section className="mt-12 text-center">
         <Link
           href="/leaderboard"
-          className="inline-flex items-center gap-2 rounded-lg bg-gold px-6 py-3 font-medium text-background transition-colors hover:bg-gold/90"
+          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-[#f9a88e] via-[#e86c5f] to-[#c06bae] text-white px-6 py-3 font-medium transition-opacity hover:opacity-90 shadow-lg shadow-primary/20"
         >
           View Full Leaderboard
           <span aria-hidden="true">&rarr;</span>

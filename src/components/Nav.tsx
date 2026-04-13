@@ -18,10 +18,10 @@ export function Nav() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-sm">
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/90 backdrop-blur-sm">
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between px-4">
         <Link href="/" className="flex items-center gap-2 font-serif text-lg font-bold">
-          <span className="text-gold">&#9670;</span>
+          <span className="text-primary">&#9670;</span>
           Empathic Bench
         </Link>
 

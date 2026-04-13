@@ -49,12 +49,12 @@ export function UploadValidator({ baseline }: Props) {
         onDragLeave={() => setDragging(false)}
         onDrop={onDrop}
         className={`rounded-lg border-2 border-dashed p-12 text-center transition-colors ${
-          dragging ? "border-gold bg-gold/5" : "border-border"
+          dragging ? "border-primary bg-primary/5" : "border-border"
         }`}
       >
         <p className="text-muted-foreground">
           Drop a bench result JSON here, or{" "}
-          <label className="cursor-pointer text-gold hover:underline">
+          <label className="cursor-pointer text-primary hover:underline">
             browse
             <input
               type="file"
@@ -71,7 +71,7 @@ export function UploadValidator({ baseline }: Props) {
       </div>
 
       {error && (
-        <div className="mt-4 rounded-lg border border-red-500/30 bg-red-500/10 p-3 text-sm text-red-400">
+        <div className="mt-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700">
           {error}
         </div>
       )}
@@ -99,7 +99,7 @@ export function UploadValidator({ baseline }: Props) {
                 return (
                   <tr key={bs.code} className="border-b border-border/50">
                     <td className="py-2 font-medium">
-                      {bs.code === "G" && <span className="mr-1 text-gold">&#9733;</span>}
+                      {bs.code === "G" && <span className="mr-1 text-primary">&#9733;</span>}
                       {bs.name}
                     </td>
                     <td className="py-2 text-right font-mono">{formatScore(bs.total.mean)}</td>
@@ -107,7 +107,7 @@ export function UploadValidator({ baseline }: Props) {
                       {yourScore !== undefined ? formatScore(yourScore) : "\u2014"}
                     </td>
                     <td className={`py-2 text-right font-mono ${
-                      diff !== undefined && diff > 0 ? "text-green-400" : diff !== undefined && diff < 0 ? "text-red-400" : ""
+                      diff !== undefined && diff > 0 ? "text-green-600" : diff !== undefined && diff < 0 ? "text-red-600" : ""
                     }`}>
                       {diff !== undefined ? `${diff > 0 ? "+" : ""}${formatScore(diff)}` : "\u2014"}
                     </td>
